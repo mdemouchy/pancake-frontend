@@ -12,7 +12,6 @@ import lists from './lists/reducer'
 import lotteryReducer from './lottery'
 import mint from './mint/reducer'
 import multicall from './multicall/reducer'
-import poolsReducer from './pools'
 import predictionsReducer from './predictions'
 import profileReducer from './profile'
 import swap from './swap/reducer'
@@ -34,7 +33,6 @@ const persistedReducer = persistReducer(
   combineReducers({
     block: blockReducer,
     farms: farmsReducer,
-    pools: poolsReducer,
     predictions: predictionsReducer,
     profile: profileReducer,
     teams: teamsReducer,

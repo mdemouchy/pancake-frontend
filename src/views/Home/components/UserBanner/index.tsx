@@ -1,7 +1,6 @@
 import React from 'react'
 import { Box, Flex } from '@pancakeswap/uikit'
 import styled from 'styled-components'
-import HarvestCard from './HarvestCard'
 import UserDetail from './UserDetail'
 
 const StyledCard = styled(Box)`
@@ -23,7 +22,7 @@ const UserBanner = () => {
           <UserDetail />
         </Flex>
         <Flex flex="1" width={['100%', null, 'auto']}>
-          <HarvestCard />
+          <p>HarvestCard</p>
         </Flex>
       </Flex>
     </StyledCard>
