@@ -50,13 +50,13 @@ export const useProfile = () => {
 
 export const useGetProfileAvatar = (account: string) => {
   const profileAvatar = useSelector((state: State) => state.profile.profileAvatars[account])
-  const { username, nft, hasRegistered, usernameFetchStatus, avatarFetchStatus } = profileAvatar || {}
+  const { username, hasRegistered, usernameFetchStatus, avatarFetchStatus } = profileAvatar || {}
   const dispatch = useAppDispatch()
 
   useEffect(() => {
     const address = isAddress(account)
 
-    if (!nft && avatarFetchStatus !== FetchStatus.Fetched && address) {
+    if (avatarFetchStatus !== FetchStatus.Fetched && address) {
       dispatch(fetchProfileAvatar(account))
     }
 
@@ -68,7 +68,7 @@ export const useGetProfileAvatar = (account: string) => {
     ) {
       dispatch(fetchProfileUsername({ account, hasRegistered }))
     }
-  }, [account, nft, username, hasRegistered, avatarFetchStatus, usernameFetchStatus, dispatch])
+  }, [account, username, hasRegistered, avatarFetchStatus, usernameFetchStatus, dispatch])
 
-  return { username, nft, usernameFetchStatus, avatarFetchStatus }
+  return { username, usernameFetchStatus, avatarFetchStatus }
 }

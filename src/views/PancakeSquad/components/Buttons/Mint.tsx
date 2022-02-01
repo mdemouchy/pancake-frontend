@@ -5,7 +5,6 @@ import { AutoRenewIcon, Button, useModal } from '@pancakeswap/uikit'
 import { ContextApi } from 'contexts/Localization/types'
 import { ToastDescriptionWithTx } from 'components/Toast'
 import { useCallWithGasPrice } from 'hooks/useCallWithGasPrice'
-import { useNftSaleContract } from 'hooks/useContract'
 import useToast from 'hooks/useToast'
 import { DefaultTheme } from 'styled-components'
 import { logError } from 'utils/sentry'
@@ -23,7 +22,6 @@ type PreEventProps = {
 
 const MintButton: React.FC<PreEventProps> = ({ t, theme, saleStatus, numberTicketsOfUser, ticketsOfUser }) => {
   const { callWithGasPrice } = useCallWithGasPrice()
-  const nftSaleContract = useNftSaleContract()
   const [isLoading, setIsLoading] = useState(false)
   const [txHashMintingResult, setTxHashMintingResult] = useState(null)
   const { toastError } = useToast()
@@ -51,7 +49,7 @@ const MintButton: React.FC<PreEventProps> = ({ t, theme, saleStatus, numberTicke
   const mintTokenCallBack = async () => {
     setIsLoading(true)
     try {
-      const tx = await callWithGasPrice(nftSaleContract, 'mint', [ticketsOfUser])
+      const tx = await callWithGasPrice(undefined, 'mint', [ticketsOfUser])
       toastSuccess(`${t('Transaction Submitted')}!`, <ToastDescriptionWithTx txHash={tx.hash} />)
       const receipt = await tx.wait()
       if (receipt.status) {

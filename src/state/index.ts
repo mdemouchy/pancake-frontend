@@ -12,7 +12,6 @@ import lists from './lists/reducer'
 import lotteryReducer from './lottery'
 import mint from './mint/reducer'
 import multicall from './multicall/reducer'
-import nftMarketReducer from './nftMarket/reducer'
 import poolsReducer from './pools'
 import predictionsReducer from './predictions'
 import profileReducer from './profile'
@@ -42,7 +41,6 @@ const persistedReducer = persistReducer(
     voting: votingReducer,
     lottery: lotteryReducer,
     info: infoReducer,
-    nftMarket: nftMarketReducer,
 
     // Exchange
     user,

@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { getNftSaleAddress } from 'utils/addressHelpers'
 import { getPancakeSquadContract } from 'utils/contractHelpers'
 import { multicallv2 } from 'utils/multicall'
 import nftSaleAbi from 'config/abi/nftSale.json'
@@ -8,7 +7,6 @@ const useUserInfos = ({ account, refreshCounter, setCallback }) => {
   useEffect(() => {
     const fetchUserInfos = async () => {
       try {
-        const nftSaleAddress = getNftSaleAddress()
         const pancakeSquadContract = getPancakeSquadContract()
 
         if (account) {
@@ -19,7 +17,7 @@ const useUserInfos = ({ account, refreshCounter, setCallback }) => {
             'viewNumberTicketsOfUser',
             'ticketsOfUserBySize',
           ].map((method) => ({
-            address: nftSaleAddress,
+            address: '0x42',
             name: method,
             params: method === 'ticketsOfUserBySize' ? [account, 0, 600] : [account],
           }))

@@ -7,7 +7,7 @@ import { BigNumber } from '@ethersproject/bignumber'
 import { MaxUint256 } from '@ethersproject/constants'
 import useApproveConfirmTransaction from 'hooks/useApproveConfirmTransaction'
 import { useCallWithGasPrice } from 'hooks/useCallWithGasPrice'
-import { useCake, useNftSaleContract } from 'hooks/useContract'
+import { useCake } from 'hooks/useContract'
 import useToast from 'hooks/useToast'
 import { DefaultTheme } from 'styled-components'
 import { ethersToBigNumber } from 'utils/bigNumber'
@@ -55,7 +55,6 @@ const BuyTicketsButtons: React.FC<BuyTicketsProps> = ({
   const [txHashEnablingResult, setTxHashEnablingResult] = useState(null)
   const [txHashBuyingResult, setTxHashBuyingResult] = useState(null)
   const { callWithGasPrice } = useCallWithGasPrice()
-  const nftSaleContract = useNftSaleContract()
   const { toastSuccess } = useToast()
   const cakeContract = useCake()
   const { isUserEnabled, setIsUserEnabled } = useContext(PancakeSquadContext)
@@ -72,7 +71,7 @@ const BuyTicketsButtons: React.FC<BuyTicketsProps> = ({
     useApproveConfirmTransaction({
       onRequiresApproval: async () => {
         try {
-          const response = await cakeContract.allowance(account, nftSaleContract.address)
+          const response = await cakeContract.allowance(account, '0x42')
           const currentAllowance = ethersToBigNumber(response)
           return currentAllowance.gt(0)
         } catch (error) {
@@ -80,7 +79,7 @@ const BuyTicketsButtons: React.FC<BuyTicketsProps> = ({
         }
       },
       onApprove: () => {
-        return callWithGasPrice(cakeContract, 'approve', [nftSaleContract.address, MaxUint256])
+        return callWithGasPrice(cakeContract, 'approve', ['0x42', MaxUint256])
       },
       onApproveSuccess: async ({ receipt }) => {
         toastSuccess(t('Transaction has succeeded!'), <ToastDescriptionWithTx txHash={receipt.transactionHash} />)
@@ -88,9 +87,8 @@ const BuyTicketsButtons: React.FC<BuyTicketsProps> = ({
       },
       onConfirm: ({ ticketsNumber }) => {
         onPresentConfirmModal()
-        return callWithGasPrice(nftSaleContract, isPreSale ? 'buyTicketsInPreSaleForGen0' : 'buyTickets', [
-          ticketsNumber,
-        ])
+        console.log('dummy')
+        return undefined
       },
       onSuccess: async ({ receipt }) => {
         toastSuccess(t('Transaction has succeeded!'))

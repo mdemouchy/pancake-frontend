@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { getNftSaleAddress } from 'utils/addressHelpers'
 import { getPancakeSquadContract } from 'utils/contractHelpers'
 import { multicallv2 } from 'utils/multicall'
 import { BigNumber } from '@ethersproject/bignumber'
@@ -9,7 +8,6 @@ const useEventInfos = ({ refreshCounter, setCallback }) => {
   useEffect(() => {
     const fetchEventInfos = async () => {
       try {
-        const nftSaleAddress = getNftSaleAddress()
         const pancakeSquadContract = getPancakeSquadContract()
 
         const calls = [
@@ -21,7 +19,7 @@ const useEventInfos = ({ refreshCounter, setCallback }) => {
           'currentStatus',
           'startTimestamp',
         ].map((method) => ({
-          address: nftSaleAddress,
+          address: '0x42',
           name: method,
         }))
 

@@ -15,7 +15,6 @@ import {
   getClaimRefundContract,
   getTradingCompetitionContract,
   getTradingCompetitionContractV2,
-  getEasterNftContract,
   getErc721Contract,
   getCakeVaultContract,
   getIfoPoolContract,
@@ -28,8 +27,6 @@ import {
   getFarmAuctionContract,
   getBunnySpecialLotteryContract,
   getAnniversaryAchievementContract,
-  getNftMarketContract,
-  getNftSaleContract,
   getPancakeSquadContract,
   getErc721CollectionContract,
   getBunnySpecialXmasContract,
@@ -162,11 +159,6 @@ export const useTradingCompetitionContractV2 = (withSignerIfPossible = true) => 
   )
 }
 
-export const useEasterNftContract = () => {
-  const { library } = useActiveWeb3React()
-  return useMemo(() => getEasterNftContract(library.getSigner()), [library])
-}
-
 export const useVaultPoolContract = (vaultKey: VaultKey): CakeVault | IfoPool => {
   const { library } = useActiveWeb3React()
   return useMemo(() => {
@@ -221,11 +213,6 @@ export const useAnniversaryAchievementContract = () => {
   return useMemo(() => getAnniversaryAchievementContract(library.getSigner()), [library])
 }
 
-export const useNftSaleContract = () => {
-  const { library } = useActiveWeb3React()
-  return useMemo(() => getNftSaleContract(library.getSigner()), [library])
-}
-
 export const usePancakeSquadContract = () => {
   const { library } = useActiveWeb3React()
   return useMemo(() => getPancakeSquadContract(library.getSigner()), [library])
@@ -237,11 +224,6 @@ export const useFarmAuctionContract = (withSignerIfPossible = true) => {
     () => getFarmAuctionContract(withSignerIfPossible ? getProviderOrSigner(library, account) : null),
     [library, account, withSignerIfPossible],
   )
-}
-
-export const useNftMarketContract = () => {
-  const { library } = useActiveWeb3React()
-  return useMemo(() => getNftMarketContract(library.getSigner()), [library])
 }
 
 export const useErc721CollectionContract = (collectionAddress: string, withSignerIfPossible = true) => {

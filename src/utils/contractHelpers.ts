@@ -18,7 +18,6 @@ import {
   getPointCenterIfoAddress,
   getClaimRefundAddress,
   getTradingCompetitionAddress,
-  getEasterNftAddress,
   getCakeVaultAddress,
   getIfoPoolAddress,
   getPredictionsAddress,
@@ -29,8 +28,6 @@ import {
   getBunnySpecialLotteryAddress,
   getFarmAuctionAddress,
   getAnniversaryAchievement,
-  getNftMarketAddress,
-  getNftSaleAddress,
   getPancakeSquadAddress,
   getTradingCompetitionAddressV2,
   getBunnySpecialXmasAddress,
@@ -173,9 +170,6 @@ export const getTradingCompetitionContract = (signer?: Signer | Provider) => {
 export const getTradingCompetitionContractV2 = (signer?: Signer | Provider) => {
   return getContract(tradingCompetitionV2Abi, getTradingCompetitionAddressV2(), signer) as TradingCompetitionV2
 }
-export const getEasterNftContract = (signer?: Signer | Provider) => {
-  return getContract(easterNftAbi, getEasterNftAddress(), signer) as EasterNft
-}
 export const getCakeVaultContract = (signer?: Signer | Provider) => {
   return getContract(cakeVaultAbi, getCakeVaultAddress(), signer) as CakeVault
 }
@@ -210,12 +204,6 @@ export const getFarmAuctionContract = (signer?: Signer | Provider) => {
 }
 export const getAnniversaryAchievementContract = (signer?: Signer | Provider) => {
   return getContract(anniversaryAchievementAbi, getAnniversaryAchievement(), signer) as AnniversaryAchievement
-}
-export const getNftMarketContract = (signer?: Signer | Provider) => {
-  return getContract(nftMarketAbi, getNftMarketAddress(), signer) as NftMarket
-}
-export const getNftSaleContract = (signer?: Signer | Provider) => {
-  return getContract(nftSaleAbi, getNftSaleAddress(), signer) as NftSale
 }
 export const getPancakeSquadContract = (signer?: Signer | Provider) => {
   return getContract(pancakeSquadAbi, getPancakeSquadAddress(), signer) as PancakeSquad

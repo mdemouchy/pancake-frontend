@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { Flex, Skeleton, UserMenuItem } from '@pancakeswap/uikit'
 import { useWeb3React } from '@web3-react/core'
 import { useTranslation } from 'contexts/Localization'
-import { nftsBaseUrl } from 'views/Nft/market/constants'
 import { useRouter } from 'next/router'
 
 interface ProfileUserMenuItemProps {
@@ -19,13 +18,8 @@ const Dot = styled.div`
 `
 
 const ProfileUserMenuItem: React.FC<ProfileUserMenuItemProps> = ({ isLoading, hasProfile }) => {
-  const { account } = useWeb3React()
   const router = useRouter()
   const { t } = useTranslation()
-
-  const handleClick = () => {
-    router.push(`${nftsBaseUrl}/profile/${account.toLowerCase()}/achievements`)
-  }
 
   const handleNoProfileClick = () => {
     router.push('/create-profile')
@@ -50,11 +44,7 @@ const ProfileUserMenuItem: React.FC<ProfileUserMenuItemProps> = ({ isLoading, ha
     )
   }
 
-  return (
-    <UserMenuItem as="button" onClick={handleClick}>
-      {t('Your Profile')}
-    </UserMenuItem>
-  )
+  return <UserMenuItem as="button">{t('Your Profile')} LoooL1</UserMenuItem>
 }
 
 export default ProfileUserMenuItem
