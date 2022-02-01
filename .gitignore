@@ -19,6 +19,9 @@ cypress/fixtures/example.json
 # production
 /build
 
+# terraform
+.terraform
+
 # misc
 .DS_Store
 .eslintcache

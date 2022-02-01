@@ -21,9 +21,9 @@ export const useCompetitionRewards = ({
   userPortoRewards: ReactText
   userSantosRewards: ReactText
 }) => {
-  const lazioPriceBUSD = useBUSDPrice(tokens.lazio)
-  const portoPriceBUSD = useBUSDPrice(tokens.porto)
-  const santosPriceBUSD = useBUSDPrice(tokens.santos)
+  const lazioPriceBUSD = useBUSDPrice(tokens.busd)
+  const portoPriceBUSD = useBUSDPrice(tokens.busd)
+  const santosPriceBUSD = useBUSDPrice(tokens.busd)
   const cakeAsBigNumber = new BigNumber(userCakeRewards as string)
   const lazioAsBigNumber = new BigNumber(userLazioRewards as string)
   const portoAsBigNumber = new BigNumber(userPortoRewards as string)
