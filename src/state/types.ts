@@ -105,7 +105,6 @@ export interface Profile {
   tokenId: number
   isActive: boolean
   username: string
-  team: Team
   hasRegistered: boolean
 }
 

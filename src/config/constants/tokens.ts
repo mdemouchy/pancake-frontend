@@ -101,13 +101,9 @@ export const testnetTokens = defineTokens({
 
 const tokens = () => {
   const chainId = process.env.NEXT_PUBLIC_CHAIN_ID
-
-  console.log('FDFDFDFDFDF', chainId)
-
   // If testnet - return list comprised of testnetTokens wherever they exist, and mainnetTokens where they don't
   if (parseInt(chainId, 10) === ChainId.TESTNET) {
     return Object.keys(mainnetTokens).reduce((accum, key) => {
-      console.log('FDFDFDFDFDF', { ...accum, [key]: testnetTokens[key] || mainnetTokens[key] })
       return { ...accum, [key]: testnetTokens[key] || mainnetTokens[key] }
     }, {} as typeof testnetTokens & typeof mainnetTokens)
   }

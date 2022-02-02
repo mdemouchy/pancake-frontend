@@ -4,21 +4,14 @@ import { useDispatch } from 'react-redux'
 import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import blockReducer from './block'
-import burn from './burn/reducer'
-import farmsReducer from './farms'
 import { updateVersion } from './global/actions'
 import infoReducer from './info'
 import lists from './lists/reducer'
-import lotteryReducer from './lottery'
-import mint from './mint/reducer'
 import multicall from './multicall/reducer'
 import predictionsReducer from './predictions'
 import profileReducer from './profile'
-import swap from './swap/reducer'
-import teamsReducer from './teams'
 import transactions from './transactions/reducer'
 import user from './user/reducer'
-import votingReducer from './voting'
 
 const PERSISTED_KEYS: string[] = ['user', 'transactions', 'lists', 'profile']
 
@@ -32,20 +25,13 @@ const persistedReducer = persistReducer(
   persistConfig,
   combineReducers({
     block: blockReducer,
-    farms: farmsReducer,
     predictions: predictionsReducer,
     profile: profileReducer,
-    teams: teamsReducer,
-    voting: votingReducer,
-    lottery: lotteryReducer,
     info: infoReducer,
 
     // Exchange
     user,
     transactions,
-    swap,
-    mint,
-    burn,
     multicall,
     lists,
   }),

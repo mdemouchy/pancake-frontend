@@ -6,7 +6,6 @@ import {
   ALLOWED_PRICE_IMPACT_MEDIUM,
 } from '../config/constants'
 
-import { Field } from '../state/swap/actions'
 import { basisPointsToPercent } from './index'
 
 const BASE_FEE = new Percent(JSBI.BigInt(25), JSBI.BigInt(10000))
@@ -46,18 +45,6 @@ export function computeTradePriceBreakdown(trade?: Trade | null): {
       : CurrencyAmount.ether(realizedLPFee.multiply(trade.inputAmount.raw).quotient))
 
   return { priceImpactWithoutFee: priceImpactWithoutFeePercent, realizedLPFee: realizedLPFeeAmount }
-}
-
-// computes the minimum amount out and maximum amount in for a trade given a user specified allowed slippage in bips
-export function computeSlippageAdjustedAmounts(
-  trade: Trade | undefined,
-  allowedSlippage: number,
-): { [field in Field]?: CurrencyAmount } {
-  const pct = basisPointsToPercent(allowedSlippage)
-  return {
-    [Field.INPUT]: trade?.maximumAmountIn(pct),
-    [Field.OUTPUT]: trade?.minimumAmountOut(pct),
-  }
 }
 
 export function warningSeverity(priceImpact: Percent | undefined): 0 | 1 | 2 | 3 | 4 {

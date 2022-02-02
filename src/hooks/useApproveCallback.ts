@@ -6,9 +6,7 @@ import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { logError } from 'utils/sentry'
 import { ROUTER_ADDRESS } from '../config/constants'
 import useTokenAllowance from './useTokenAllowance'
-import { Field } from '../state/swap/actions'
 import { useTransactionAdder, useHasPendingApproval } from '../state/transactions/hooks'
-import { computeSlippageAdjustedAmounts } from '../utils/prices'
 import { calculateGasMargin } from '../utils'
 import { useTokenContract } from './useContract'
 import { useCallWithGasPrice } from './useCallWithGasPrice'
@@ -105,14 +103,4 @@ export function useApproveCallback(
   }, [approvalState, token, tokenContract, amountToApprove, spender, addTransaction, callWithGasPrice])
 
   return [approvalState, approve]
-}
-
-// wraps useApproveCallback in the context of a swap
-export function useApproveCallbackFromTrade(trade?: Trade, allowedSlippage = 0) {
-  const amountToApprove = useMemo(
-    () => (trade ? computeSlippageAdjustedAmounts(trade, allowedSlippage)[Field.INPUT] : undefined),
-    [trade, allowedSlippage],
-  )
-
-  return useApproveCallback(amountToApprove, ROUTER_ADDRESS)
 }

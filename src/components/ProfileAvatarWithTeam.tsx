@@ -47,7 +47,7 @@ const ProfileAvatarWithTeam: React.FC<ProfileAvatarProps> = ({ profile }) => {
   return (
     <AvatarWrapper bg={profile.collectionAddress}>
       {!profile.isActive && <AvatarInactive />}
-      <TeamAvatar src={`/images/teams/${profile.team.images.alt}`} alt={profile.team.name} />
+      <TeamAvatar src="fdfd/rere" alt="fdfdfdfdfd" />
     </AvatarWrapper>
   )
 }

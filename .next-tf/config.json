@@ -1025,36 +1025,14 @@
     "/manifest.json",
     "/robots.txt",
     "/swap.mp3",
-    "/add",
-    "/add/[[...currency]]",
-    "/competition",
-    "/create-profile",
-    "/farms",
-    "/farms/auction",
-    "/farms/history",
-    "/find",
-    "/ifo",
-    "/ifo/history",
     "/index",
     "/info",
     "/info/pools",
     "/info/pools/[address]",
     "/info/tokens",
     "/info/tokens/[address]",
-    "/liquidity",
-    "/lottery",
-    "/pancake-squad",
-    "/pools",
-    "/pools/history",
     "/prediction",
-    "/prediction/leaderboard",
-    "/remove/[[...currency]]",
-    "/swap",
-    "/teams",
-    "/teams/[id]",
-    "/voting",
-    "/voting/proposal/[id]",
-    "/voting/proposal/create"
+    "/prediction/leaderboard"
   ],
   "routes": [
     {
@@ -1166,25 +1144,12 @@
       "handle": "rewrite"
     },
     {
-      "src": "^/_next/data/pA0qXx8N8yV4x51Q8eKRJ/index.json$",
+      "src": "^/_next/data/p\\-7hfptfU_wDmo0\\-zX3ZS/index.json$",
       "dest": "/",
       "check": true
     },
     {
-      "src": "^/_next/data/pA0qXx8N8yV4x51Q8eKRJ/add(?:/(?<currency>.+?))?\\.json$",
-      "dest": "/add/[[...currency]]?currency=$currency",
-      "check": true
-    },
-    {
-      "src": "^/add/\\[\\[\\.\\.\\.currency\\]\\]/?$",
-      "dest": "/__NEXT_PAGE_LAMBDA_0",
-      "headers": {
-        "x-nextjs-page": "/add/[[...currency]]"
-      },
-      "check": true
-    },
-    {
-      "src": "^/_next/data/pA0qXx8N8yV4x51Q8eKRJ/info/tokens/(?<address>[^/]+?)\\.json$",
+      "src": "^/_next/data/p\\-7hfptfU_wDmo0\\-zX3ZS/info/tokens/(?<address>[^/]+?)\\.json$",
       "dest": "/info/tokens/[address]?address=$address",
       "check": true
     },
@@ -1197,36 +1162,10 @@
       "check": true
     },
     {
-      "src": "^/_next/data/pA0qXx8N8yV4x51Q8eKRJ/remove(?:/(?<currency>.+?))?\\.json$",
-      "dest": "/remove/[[...currency]]?currency=$currency",
-      "check": true
-    },
-    {
-      "src": "^/remove/\\[\\[\\.\\.\\.currency\\]\\]/?$",
-      "dest": "/__NEXT_PAGE_LAMBDA_0",
-      "headers": {
-        "x-nextjs-page": "/remove/[[...currency]]"
-      },
-      "check": true
-    },
-    {
       "src": "^(/|/index|)/?$",
       "dest": "/__NEXT_PAGE_LAMBDA_0",
       "headers": {
         "x-nextjs-page": "/index"
-      },
-      "check": true
-    },
-    {
-      "src": "^/add(?:/(?<currency>.+?))?(?:/)?$",
-      "dest": "/add/[[...currency]]?currency=$currency",
-      "check": true
-    },
-    {
-      "src": "^/add/\\[\\[\\.\\.\\.currency\\]\\]/?$",
-      "dest": "/__NEXT_PAGE_LAMBDA_0",
-      "headers": {
-        "x-nextjs-page": "/add/[[...currency]]"
       },
       "check": true
     },
@@ -1249,29 +1188,6 @@
       "check": true
     },
     {
-      "src": "^/remove(?:/(?<currency>.+?))?(?:/)?$",
-      "dest": "/remove/[[...currency]]?currency=$currency",
-      "check": true
-    },
-    {
-      "src": "^/remove/\\[\\[\\.\\.\\.currency\\]\\]/?$",
-      "dest": "/__NEXT_PAGE_LAMBDA_0",
-      "headers": {
-        "x-nextjs-page": "/remove/[[...currency]]"
-      },
-      "check": true
-    },
-    {
-      "src": "^/teams/(?<id>[^/]+?)(?:/)?$",
-      "dest": "/teams/[id]?id=$id",
-      "check": true
-    },
-    {
-      "src": "^/voting/proposal/(?<id>[^/]+?)(?:/)?$",
-      "dest": "/voting/proposal/[id]?id=$id",
-      "check": true
-    },
-    {
       "handle": "hit"
     },
     {
@@ -1283,29 +1199,12 @@
       "status": 404
     }
   ],
-  "buildId": "pA0qXx8N8yV4x51Q8eKRJ",
+  "buildId": "p-7hfptfU_wDmo0-zX3ZS",
   "prerenders": {},
   "staticFilesArchive": "static-website-files.zip",
   "version": 1,
   "images": {
     "domains": [],
-    "sizes": [
-      640,
-      750,
-      828,
-      1080,
-      1200,
-      1920,
-      2048,
-      3840,
-      16,
-      32,
-      48,
-      64,
-      96,
-      128,
-      256,
-      384
-    ]
+    "sizes": [640, 750, 828, 1080, 1200, 1920, 2048, 3840, 16, 32, 48, 64, 96, 128, 256, 384]
   }
 }

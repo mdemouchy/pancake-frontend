@@ -1,7 +1,6 @@
 import { Profile } from 'state/types'
 import { PancakeProfile } from 'config/abi/types/PancakeProfile'
 import profileABI from 'config/abi/pancakeProfile.json'
-import { getTeam } from 'state/teams/helpers'
 import { multicallv2 } from 'utils/multicall'
 import { getPancakeProfileAddress } from 'utils/addressHelpers'
 
@@ -60,9 +59,7 @@ export const getProfileAvatar = async (address: string) => {
 
     const { tokenId, collectionAddress, isActive } = transformProfileResponse(profileResponse)
 
-    let nft = null
-
-    return { nft, hasRegistered }
+    return { hasRegistered }
   } catch {
     return { nft: null, hasRegistered: false }
   }
@@ -81,7 +78,6 @@ export const getProfile = async (address: string): Promise<GetProfileResponse> =
     }
 
     const { userId, points, teamId, tokenId, collectionAddress, isActive } = transformProfileResponse(profileResponse)
-    const team = await getTeam(teamId)
     const username = await getUsername(address)
 
     // If the profile is not active the tokenId returns 0, which is still a valid token id
@@ -94,7 +90,6 @@ export const getProfile = async (address: string): Promise<GetProfileResponse> =
       username,
       collectionAddress,
       isActive,
-      team,
     } as Profile
 
     return { hasRegistered, profile }

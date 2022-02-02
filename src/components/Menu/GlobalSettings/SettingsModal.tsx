@@ -9,7 +9,6 @@ import {
   useUserSingleHopOnly,
 } from 'state/user/hooks'
 import { useTranslation } from 'contexts/Localization'
-import { useSwapActionHandlers } from 'state/swap/hooks'
 import useTheme from 'hooks/useTheme'
 import QuestionHelper from '../../QuestionHelper'
 import TransactionSettings from './TransactionSettings'
@@ -31,7 +30,6 @@ const SettingsModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
   const [singleHopOnly, setSingleHopOnly] = useUserSingleHopOnly()
   const [audioPlay, toggleSetAudioMode] = useAudioModeManager()
   const [subgraphHealth, setSubgraphHealh] = useSubgraphHealthIndicatorManager()
-  const { onChangeRecipient } = useSwapActionHandlers()
 
   const { t } = useTranslation()
   const { theme, isDark, toggleTheme } = useTheme()
@@ -48,10 +46,8 @@ const SettingsModal: React.FC<InjectedModalProps> = ({ onDismiss }) => {
 
   const handleExpertModeToggle = () => {
     if (expertMode) {
-      onChangeRecipient(null)
       toggleExpertMode()
     } else if (!showExpertModeAcknowledgement) {
-      onChangeRecipient(null)
       toggleExpertMode()
     } else {
       setShowConfirmExpertModal(true)

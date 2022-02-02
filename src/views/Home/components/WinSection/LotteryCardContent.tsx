@@ -3,10 +3,8 @@ import { Flex, Text, Skeleton, Button, ArrowForwardIcon } from '@pancakeswap/uik
 import { NextLinkFromReactRouter } from 'components/NextLink'
 import { useTranslation } from 'contexts/Localization'
 import useIntersectionObserver from 'hooks/useIntersectionObserver'
-import { usePriceCakeBusd } from 'state/farms/hooks'
 import Balance from 'components/Balance'
 import styled from 'styled-components'
-import { fetchCurrentLotteryIdAndMaxBuy, fetchLottery } from 'state/lottery/helpers'
 import BigNumber from 'bignumber.js'
 import { getBalanceAmount } from 'utils/formatBalance'
 import { useSlowRefreshEffect } from 'hooks/useRefreshEffect'
@@ -27,7 +25,7 @@ const LotteryCardContent = () => {
   const [loadData, setLoadData] = useState(false)
   const [lotteryId, setLotteryId] = useState<string>(null)
   const [currentLotteryPrize, setCurrentLotteryPrize] = useState<BigNumber>(null)
-  const cakePriceBusdAsString = usePriceCakeBusd().toString()
+  const cakePriceBusdAsString = '7.77'
 
   const cakePrizesText = t('%cakePrizeInUsd% in CAKE prizes this round', { cakePrizeInUsd: cakePriceBusdAsString })
   const [pretext, prizesThisRound] = cakePrizesText.split(cakePriceBusdAsString)
@@ -45,8 +43,7 @@ const LotteryCardContent = () => {
   useEffect(() => {
     // get current lottery ID
     const fetchCurrentID = async () => {
-      const { currentLotteryId } = await fetchCurrentLotteryIdAndMaxBuy()
-      setLotteryId(currentLotteryId)
+      setLotteryId('12345')
     }
 
     if (loadData) {
@@ -57,8 +54,7 @@ const LotteryCardContent = () => {
   useSlowRefreshEffect(() => {
     // get public data for current lottery
     const fetchCurrentLotteryPrize = async () => {
-      const { amountCollectedInCake } = await fetchLottery(lotteryId)
-      const prizeInBusd = cakePriceBusd.times(amountCollectedInCake)
+      const prizeInBusd = cakePriceBusd.times(new BigNumber('987654321'))
       setCurrentLotteryPrize(prizeInBusd)
     }
 

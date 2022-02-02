@@ -12,7 +12,6 @@ import MetricsSection from './components/MetricsSection'
 import SalesSection from './components/SalesSection'
 import WinSection from './components/WinSection'
 import Footer from './components/Footer'
-import CakeDataRow from './components/CakeDataRow'
 import { WedgeTopLeft, InnerWedgeWrapper, OuterWedgeWrapper, WedgeTopRight } from './components/WedgeSvgs'
 import UserBanner from './components/UserBanner'
 import FarmAuctionsBanner from './components/Banners/FarmAuctionsBanner'
@@ -144,7 +143,6 @@ const Home: React.FC = () => {
         hasCurvedDivider={false}
       >
         <SalesSection {...cakeSectionData} />
-        <CakeDataRow />
       </PageSection>
       <PageSection
         innerProps={{ style: HomeSectionContainerStyles }}

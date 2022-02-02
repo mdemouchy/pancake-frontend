@@ -15,7 +15,6 @@ import React, { Fragment } from 'react'
 import { PersistGate } from 'redux-persist/integration/react'
 import { useStore, persistor } from 'state'
 import { usePollBlockNumber } from 'state/block/hooks'
-import { usePollCoreFarmData } from 'state/farms/hooks'
 import { NextPage } from 'next'
 import { useFetchProfile } from 'state/profile/hooks'
 import { Blocklist, Updaters } from '..'
@@ -34,7 +33,6 @@ function GlobalHooks() {
   usePollBlockNumber()
   useEagerConnect()
   useFetchProfile()
-  usePollCoreFarmData()
   useUserAgent()
   useInactiveListener()
   useSentryUser()
