@@ -49,7 +49,7 @@ const LiveRoundCard: React.FC<LiveRoundCardProps> = ({
   const priceColor = isBull ? 'success' : 'failure'
 
   const priceDifference = getPriceDifference(price, lockPrice)
-  const priceAsNumber = parseFloat(formatBigNumberToFixed(price, 3, 8))
+  const priceAsNumber = parseFloat(formatBigNumberToFixed(price, 5, 8))
   const hasRoundFailed = getHasRoundFailed(round, bufferSeconds)
 
   const now = Date.now()
@@ -58,7 +58,7 @@ const LiveRoundCard: React.FC<LiveRoundCardProps> = ({
     start: 0,
     end: priceAsNumber,
     duration: 1,
-    decimals: 3,
+    decimals: 5,
   })
   const { targetRef, tooltip, tooltipVisible } = useTooltip(t('Last price from Chainlink Oracle'), {
     placement: 'bottom',

@@ -58,6 +58,7 @@
     "/images/achievements/lottie.svg",
     "/images/achievements/lucky.svg",
     "/images/achievements/syrup-soaker.svg",
+    "/images/banner.png",
     "/images/bunny-santa.svg",
     "/images/burnt-cake.png",
     "/images/cake-bg.svg",
@@ -1144,12 +1145,12 @@
       "handle": "rewrite"
     },
     {
-      "src": "^/_next/data/p\\-7hfptfU_wDmo0\\-zX3ZS/index.json$",
+      "src": "^/_next/data/0gVg1aFFpSdl8tAUlNCuf/index.json$",
       "dest": "/",
       "check": true
     },
     {
-      "src": "^/_next/data/p\\-7hfptfU_wDmo0\\-zX3ZS/info/tokens/(?<address>[^/]+?)\\.json$",
+      "src": "^/_next/data/0gVg1aFFpSdl8tAUlNCuf/info/tokens/(?<address>[^/]+?)\\.json$",
       "dest": "/info/tokens/[address]?address=$address",
       "check": true
     },
@@ -1199,7 +1200,7 @@
       "status": 404
     }
   ],
-  "buildId": "p-7hfptfU_wDmo0-zX3ZS",
+  "buildId": "0gVg1aFFpSdl8tAUlNCuf",
   "prerenders": {},
   "staticFilesArchive": "static-website-files.zip",
   "version": 1,

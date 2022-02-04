@@ -35,8 +35,8 @@ const initializeTradingView = (TradingViewObj: any, theme: DefaultTheme, localeC
     id: opts.container_id,
     autosize: true,
     height: '100%',
-    symbol: 'BINANCE:BNBUSDT',
-    interval: '5',
+    symbol: 'BINANCE:ONEUSD',
+    interval: '120',
     timezone,
     theme: theme.isDark ? 'dark' : 'light',
     style: '1',
@@ -133,7 +133,7 @@ export const TradingViewLabel = ({ symbol, ...props }: { symbol: string } & Flex
   return (
     <Flex alignItems="center" px="24px" {...props}>
       <Link fontSize="14px" href={`https://www.tradingview.com/symbols/${symbol}`} external>
-        BNB {t('Chart')}
+        ONE {t('Chart')}
       </Link>
       <Text fontSize="14px" ml="4px">
         {t('by')} TradingView
